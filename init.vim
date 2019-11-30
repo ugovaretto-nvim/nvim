@@ -83,6 +83,13 @@ endfunc
 " Toggle between normal and relative numbering.
 nnoremap <leader>r :call NumberToggle()<cr>
 
+"highlight text > 80 colums
+highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+match OverLength /\%81v.\+/
+
+"deoplete
+let g:deoplete#enable_at_startup = 1
+
 " Use ; for commands.
 nnoremap ; :
 " Use Q to execute default register.
