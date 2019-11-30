@@ -15,6 +15,7 @@ if dein#load_state('~/.cache/dein')
     call dein#add('junegunn/fzf.vim')
     call dein#add('wsdjeg/dein-ui.vim')
     call dein#add('itchyny/lightline.vim') 
+    call dein#add('pboettch/vim-cmake-syntax')
 "  call dein#add('zchee/deoplete-jedi')
  " call dein#save_state()
     call dein#add('davidhalter/jedi-vim') "davidhalter/jedi-vim
@@ -34,6 +35,11 @@ if dein#check_install()
 endif
 
 """""""""""""""""""""""""
+
+" map buffer switching command
+map <leader>n :bn<cr>
+map <leader>p :bp<cr>
+map <leader>d :bd<cr>
 
 " show existing tab with 4 spaces width
 set tabstop=4
