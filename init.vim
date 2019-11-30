@@ -6,26 +6,32 @@ endif
 set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
 
 if dein#load_state('~/.cache/dein')
-  call dein#begin('~/.cache/dein')
-
-  call dein#add('~/.cache/dein/repos/github.com/Shougo/dein.vim')
-  call dein#add('Shougo/deoplete.nvim')
-  if !has('nvim')
+    call dein#begin('~/.cache/dein')
+    call dein#add('~/.cache/dein/repos/github.com/Shougo/dein.vim')
+  "call dein#add('Shougo/deoplete.nvim')
     call dein#add('roxma/nvim-yarp')
-    call dein#add('roxma/vim-hug-neovim-rpc')
-  endif
   " NerdTree
-  call dein#add('scrooloose/nerdtree')
-  call dein#add('junegunn/fzf.vim')
-  call dein#add('wsdjeg/dein-ui.vim')
-  call dein#add('itchyny/lightline.vim') 
-  call dein#end()
-  call dein#save_state()
+    call dein#add('scrooloose/nerdtree')
+    call dein#add('junegunn/fzf.vim')
+    call dein#add('wsdjeg/dein-ui.vim')
+    call dein#add('itchyny/lightline.vim') 
+"  call dein#add('zchee/deoplete-jedi')
+ " call dein#save_state()
+    call dein#add('davidhalter/jedi-vim') "davidhalter/jedi-vim
+    call dein#add('tpope/vim-commentary') 
+    call dein#add('ncm2/ncm2')
+    call dein#add('ncm2/ncm2-jedi')
+    call dein#add('ncm2/ncm2-path')
+    call dein#add('ncm2/ncm2-bufword')
+
 endif
 
 filetype plugin indent on
 syntax enable
 
+if dein#check_install()
+    call dein#install()
+endif
 
 """""""""""""""""""""""""
 
@@ -47,7 +53,8 @@ set expandtab           " Insert spaces when TAB is pressed.
 set tabstop=4           " Render TABs using this many spaces.
 set shiftwidth=4        " Indentation amount for < and > commands.
 
-set nojoinspaces        " Prevents inserting two spaces after punctuation on a join (J)
+set nojoinspaces        " Prevents inserting two spaces after punctuation on a
+                        " join (J)
 
 " More natural splits
 set splitbelow          " Horizontal split below current.
@@ -87,10 +94,16 @@ nnoremap <leader>r :call NumberToggle()<cr>
 highlight OverLength ctermbg=red ctermfg=white guibg=#592929
 match OverLength /\%81v.\+/
 
-"deoplete
-let g:deoplete#enable_at_startup = 1
-
 " Use ; for commands.
 nnoremap ; :
 " Use Q to execute default register.
 nnoremap Q @q
+
+"---- Plugin configuration
+"NCM2
+" enable ncm2 for all buffers
+autocmd BufEnter * call ncm2#enable_for_buffer()
+
+" IMPORTANT: :help Ncm2PopupOpen for more information
+set completeopt=noinsert,menuone,noselect
+
