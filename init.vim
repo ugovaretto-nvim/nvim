@@ -36,11 +36,6 @@ endif
 
 """""""""""""""""""""""""
 
-" map buffer switching command
-map <leader>n :bn<cr>
-map <leader>p :bp<cr>
-map <leader>d :bd<cr>
-
 " show existing tab with 4 spaces width
 set tabstop=4
 " when indenting with '>', use 4 spaces width
@@ -104,6 +99,11 @@ match OverLength /\%81v.\+/
 nnoremap ; :
 " Use Q to execute default register.
 nnoremap Q @q
+
+" map buffer switching command
+nnoremap <leader>n :bn<cr>
+nnoremap <leader>p :bp<cr>
+nnoremap <leader>d :bd<cr>
 
 "---- Plugin configuration
 "NCM2
