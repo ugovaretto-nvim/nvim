@@ -36,17 +36,10 @@ endif
 
 """""""""""""""""""""""""
 
-" show existing tab with 4 spaces width
-set tabstop=4
-" when indenting with '>', use 4 spaces width
-set shiftwidth=4
-" On pressing tab, insert 4 spaces
-set expandtab
-set textwidth=80
-
 " Map the leader key to SPACE
 let mapleader="\<SPACE>"
 
+set textwidth=80
 set showmatch           " Show matching brackets.
 set number              " Show the line numbers on the left side.
 set formatoptions+=o    " Continue comment marker in new lines.
@@ -108,7 +101,7 @@ nnoremap <leader>d :bd<cr>
 "---- Plugin configuration
 "NCM2
 " enable ncm2 for all buffers
-autocmd BufEnter * call ncm2#enable_for_buffer()
+"autocmd BufEnter * call ncm2#enable_for_buffer()
 
 " IMPORTANT: :help Ncm2PopupOpen for more information
 set completeopt=noinsert,menuone,noselect
